@@ -2308,7 +2308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1356767449}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0.86, z: -3.54}
+  m_LocalPosition: {x: 0.01, y: 0.86, z: -1.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210327626}
@@ -2601,7 +2601,7 @@ MonoBehaviour:
   secondsBetweenSpawning: 0.1
   xMinRange: -20
   xMaxRange: 20
-  yMinRange: 3
+  yMinRange: 6
   yMaxRange: 20
   zMinRange: -20
   zMaxRange: 20
