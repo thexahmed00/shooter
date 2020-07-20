@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Play : MonoBehaviour
+public class homeScreenManager : MonoBehaviour
 {
-    public Fade sceneFader;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +13,8 @@ public class Play : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    public void play()
-    {
-        sceneFader.fadeTo(1);
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            Application.Quit();
+        }
     }
 }

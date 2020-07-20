@@ -181,4 +181,12 @@ public class GameManager : MonoBehaviour {
 		pauseMenu.SetActive(false);
 		Time.timeScale = 1f;
 	}
+	public void menuPressed()
+	{
+		SceneManager.LoadScene(0);
+	}
+	public void OnExit()
+	{
+		Application.Quit();
+	}
 }
