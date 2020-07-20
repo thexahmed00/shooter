@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 	public string RestartLevel;
 	
 	private float currentTime;
-
+	public GameObject pauseMenu;
 	// setup the game
 	void Start () {
 
@@ -62,7 +62,12 @@ public class GameManager : MonoBehaviour {
 			nextLevelButtons.SetActive (false);
 		if (RestartButtons)
 			RestartButtons.SetActive(false);
+		if (pauseMenu)
+		{
+			pauseMenu.SetActive(false);
+		}
 	}
+
 
 	// this is the main game event loop
 	void Update () {
@@ -75,6 +80,10 @@ public class GameManager : MonoBehaviour {
 				currentTime -= Time.deltaTime;
 				mainTimerDisplay.text = currentTime.ToString ("0");				
 			}
+		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			Onpause();
 		}
 	}
 
@@ -162,4 +171,14 @@ public class GameManager : MonoBehaviour {
 		SceneManager.LoadScene(RestartLevel);
 	}
 
+	public void Onpause()
+	{
+		pauseMenu.SetActive(true);
+		Time.timeScale = 0;
+	}
+	public void OnPlay()
+	{
+		pauseMenu.SetActive(false);
+		Time.timeScale = 1f;
+	}
 }
