@@ -100,7 +100,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 2
-    - _Exposure: 1.7
+    - _Exposure: 1.3
     - _Glossiness: 0.1
     - _Lightmapping: 1
     - _Metallic: 0.1
@@ -121,4 +121,4 @@ Material:
     - _SkyTint: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
-    - _Tint: {r: 0.69834346, g: 0.7264151, b: 0.67501783, a: 1}
+    - _Tint: {r: 0.7960785, g: 0.854902, b: 0.9490197, a: 1}

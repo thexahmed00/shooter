@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class FirstPersonController : MonoBehaviour
@@ -28,6 +29,8 @@ public class FirstPersonController : MonoBehaviour
     Vector2 moveInput;
     public AudioClip shootSFX;
 
+    Quaternion Mx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,21 @@ public class FirstPersonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_EDITOR
+
+        
+        Mx.x += Input.GetAxis("Mouse Y") * 3  ;
+        Mx.y += Input.GetAxis("Mouse X") * 3;
+        Mx.x = Mathf.Clamp(Mx.x, -90, 90);
+        Mx.y = Mathf.Clamp(Mx.y, -30, 30);
+        cameraTransform.localRotation = Quaternion.Euler(Mx.x, Mx.y,Mx.z);
+
+        print(Mx.y);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            shoot();
+        }
+#endif
         // Handles input
         GetTouchInput();
 
@@ -139,6 +157,7 @@ public class FirstPersonController : MonoBehaviour
         cameraTransform.localRotation = Quaternion.Euler(cameraPitch, 0, 0);
 
         // horizontal (yaw) rotation
+        lookInput.x = Mathf.Clamp(lookInput.x, -30, 30);
         transform.Rotate(transform.up, lookInput.x);
     }
 
@@ -162,4 +181,5 @@ public class FirstPersonController : MonoBehaviour
         newProjectile.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * bulletpower, ForceMode.VelocityChange);
         AudioSource.PlayClipAtPoint(shootSFX, newProjectile.transform.position);
     }
+
 }

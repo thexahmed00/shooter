@@ -19,6 +19,6 @@ public class Play : MonoBehaviour
     }
     public void play()
     {
-        sceneFader.fadeTo(1);
+        sceneFader.fadeTo("Level Menu");
     }
 }

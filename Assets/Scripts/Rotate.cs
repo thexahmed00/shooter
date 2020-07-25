@@ -19,8 +19,9 @@ public class Rotate : MonoBehaviour {
 		switch(way)
 		{
 		case whichWayToRotate.AroundX:
-			transform.Rotate(Vector3.right * Time.deltaTime * speed);
-			break;
+				transform.Translate(Vector3.right * Mathf.Sin(Time.timeSinceLevelLoad) * speed * Time.deltaTime);
+				transform.Translate(Vector3.up * Mathf.Cos(Time.timeSinceLevelLoad) * speed * Time.deltaTime);
+				break;
 		case whichWayToRotate.AroundY:
 			transform.Rotate(Vector3.up * Time.deltaTime * speed);
 			break;

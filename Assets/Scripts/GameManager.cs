@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	// make game manager public static so can access this from other scripts
 	public static GameManager gm;
-
+	
 	// public variables
 	public int score=0;
 
@@ -36,9 +36,14 @@ public class GameManager : MonoBehaviour {
 	
 	private float currentTime;
 	public GameObject pauseMenu;
+	public Fade loadScene;
+	public int UnlockScene = 3;
+
 	// setup the game
 	void Start () {
 
+		
+	
 		// set the current time to the startTime specified
 		currentTime = startTime;
 
@@ -163,8 +168,10 @@ public class GameManager : MonoBehaviour {
 	// public function that can be called to go to the next level of the game
 	public void NextLevel ()
 	{
+		
 		// we are just loading the specified next level (scene)
-        SceneManager.LoadScene(nextLevelToLoad);
+		PlayerPrefs.SetInt("LevelReached", UnlockScene);
+		loadScene.fadeTo(nextLevelToLoad);
 	}
 	public void ResetLevel()
 	{
@@ -183,10 +190,13 @@ public class GameManager : MonoBehaviour {
 	}
 	public void menuPressed()
 	{
-		SceneManager.LoadScene(0);
+		loadScene.fadeTo("Level Menu");
+		Time.timeScale = 1f;
+		
 	}
 	public void OnExit()
 	{
+		Time.timeScale = 1f;
 		Application.Quit();
 	}
 }
